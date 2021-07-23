@@ -10,14 +10,21 @@
     <link rel="stylesheet" href="assets/css/style.css" />
 </head>
 <body>
+  
   <header><h1 class="title">Weekender</h1></header>
   <p class="title"><span id="datetime"></span></p>
+ <!-- date and time script -->
 
   <script>
     var dt = new Date();
     document.getElementById("datetime").innerHTML = dt.toLocaleString();
     </script>
-  <!-- add time and date right under -->
+
+ <section class="input-form">
+   <h2>Welcome!</h2>
+   <p>To start on your weekend adventures, we need to know where you are at.  Please type in your location and click submit to continue.</p>
+   <input type="text"/><button class="button">Submit</button>
+ </section>
 
   <div class="row">
     <!-- weather api on left side-->
