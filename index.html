@@ -5,12 +5,29 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.6.3/css/foundation-float.min.css" integrity="sha512-tuBWy51BW5GZ5BfYddst4eq3d8mcnOk1I5ZHj45P5AUcf9yo5X3KmOJslloaM0ZoSDzS4lcGY91j3L1k5ZVuVg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="assets/css/style.css" />
 </head>
 <body>
-  <header><h1 class="title">Weekender</h1></header>
+  <header>
+  
+  <div data-sticky-container>
+    <div class="responsive-nav-social" id="responsive-nav-social" data-sticky data-options="marginTop:0;">
+      <div class="row align-justify align-middle" id="responsive-menu">
+        <div class="responsive-nav-social-left">
+          <ul class="menu vertical medium-horizontal">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Travel</a></li>
+            <li><a href="#">Eat</a></li>
+            <li><a href="#">Relax</a></li>
+            <li><a href="#">Videos</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <h1 class="title">Weekender</h1></header>
   <p class="title"><span id="datetime"></span></p>
 
   <script>
@@ -38,12 +55,22 @@
   </div>
 
   <!-- outdoor activities based on location and weather-->
-  <h2 class="title">List of activities</h2>
-  <ul>
-    <li>Frisbee</li>
-    <li>Football</li>
-    <li>Hiking</li>
-  </ul>
+  <div data-closable="fade-out" class="todo-list-card card">
+    <div class="card-divider">
+      <h3>To Do List</h3>
+      <button class="close-button" data-close>x</button>
+    </div>
+    <div class="card-section">
+      <ul>
+        <li><input id="item1" type="checkbox"></input><label for="item1"></label>Hiking and Camping</li>
+        <li><input id="item2" type="checkbox"></input><label for="item2"></label>Hunting and fishing</li>
+        <li><input id="item3" type="checkbox"></input><label for="item3"></label>Canoeing, kayaking and rafting</li>
+        <li><input id="item4" type="checkbox"></input><label for="item4"></label>Biking</li>
+        <li><input id="item5" type="checkbox"></input><label for="item5"></label>Rock Climbing</li>
+        <li><input id="item6" type="checkbox"></input><label for="item6"></label>Skiing</li>
+      </ul>
+    </div>
+  </div>
   
 
     <!-- weather widget that may be removed, jQuery first, then Popper.js, then foundation JS -->
