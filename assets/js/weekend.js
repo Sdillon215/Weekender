@@ -24,6 +24,8 @@ var displayDailyWeather = function (data) {
     console.log(data.main.temp);
     console.log(data.wind.speed);
     console.log(data.main.humidity);
+    var image = $("<img>").attr("src", "https://openweathermap.org/img/w/" + data.weather[0].icon + ".png")
+    
 };
 
 // calls getDailyWeather function to run current weather api with hard coded value of Salt Lake City
