@@ -22,6 +22,7 @@ var getDailyWeather = function (city) {
 var displayDailyWeather = function (data) {
     
     var weatherList = $("<ul>");
+    // need to add classes to style weather list ex: var cityname = $("<li>").addClass("new classes here").text(data.name);
     var cityName = $("<li>").text(data.name);
     var cityTemp = $("<li>").text("Temp: " + data.main.temp + "F");
     var cityWind = $("<li>").text("Wind: " + data.wind.speed + " Mph");
