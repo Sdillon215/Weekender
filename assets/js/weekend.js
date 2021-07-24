@@ -20,16 +20,17 @@ var getDailyWeather = function (city) {
 
 // recieves data parameter from getDailyWeather function and will dynamically display data to page
 var displayDailyWeather = function (data) {
-    console.log(data.name);
-    console.log(data.main.temp);
-    console.log(data.wind.speed);
-    console.log(data.main.humidity);
-    var card = $("<ul>");
+    
+    var weatherList = $("<ul>");
     var cityName = $("<li>").text(data.name);
-    var cityTemp = $("<li>").text(data.main.temp);
-    var cityWind = $("<li>").text(data.wind.speed);
-    var cityHumid = $("<li>").text(data.main.humidity);
-    var image = $("<img>").attr("src", "https://openweathermap.org/img/w/" + data.weather[0].icon + ".png")
+    var cityTemp = $("<li>").text("Temp: " + data.main.temp + "F");
+    var cityWind = $("<li>").text("Wind: " + data.wind.speed + " Mph");
+    var cityHumid = $("<li>").text("Humidity: " + data.main.humidity + "%");
+    var cityImage = $("<img>").attr("src", "https://openweathermap.org/img/w/" + data.weather[0].icon + ".png")
+    // appends weather info to <ul> as <li>
+    weatherList.append(cityName, cityTemp, cityWind, cityHumid, cityImage);
+    // appends <ul> to div with the id of weather
+    $("#weather").append(weatherList);
     
 };
 
