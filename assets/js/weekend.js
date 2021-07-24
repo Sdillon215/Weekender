@@ -24,6 +24,11 @@ var displayDailyWeather = function (data) {
     console.log(data.main.temp);
     console.log(data.wind.speed);
     console.log(data.main.humidity);
+    var card = $("<ul>");
+    var cityName = $("<li>").text(data.name);
+    var cityTemp = $("<li>").text(data.main.temp);
+    var cityWind = $("<li>").text(data.wind.speed);
+    var cityHumid = $("<li>").text(data.main.humidity);
     var image = $("<img>").attr("src", "https://openweathermap.org/img/w/" + data.weather[0].icon + ".png")
     
 };
