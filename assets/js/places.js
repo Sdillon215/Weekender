@@ -1,7 +1,7 @@
 //function to get places
-var getPlaces = function (city, activity) {
+var getPlaces = function (city, activity, radius) {
     var placesURL = "https://maps.googleapis.com/maps/api/place/textsearch/json?query="
-        + activity + "+in" + city + "&key=AIzaSyAoe4eRIVCMKOzBIoL-f1UI_h8Ey3ZLMok";
+        + activity + "+in" + city + "&radius=" + radius + "&key=AIzaSyAoe4eRIVCMKOzBIoL-f1UI_h8Ey3ZLMok";
 
     fetch(placesURL).then(function (response) {
         if (response.ok) {
@@ -18,10 +18,15 @@ var getPlaces = function (city, activity) {
 }
 
 var displayPlaces = function (data) {
-    
-    
-    
+    var locationList = $("<ol>");
+    var locationName = $("<li>").text(data.results.name);
+    //will be using lat and lng to populate map markers
+    var locationLat = $("<li>").text(data.results.geometry.location.lat);
+    var locationLat = $("<li>").text(data.results.geometry.location.lat);
+
+    locationList.append(locationName + locationLat + locationLat + locationLat)
+    $("#places").append(locationList);
 };
 
 //defaults to SLC
-getPlaces("Salt Lake City");
+getPlaces("Salt Lake City", "hiking", "1000");
