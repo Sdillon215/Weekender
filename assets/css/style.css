@@ -97,3 +97,10 @@ body {
 .sticky-container {
   width: 100%;
 }
+
+/* START MAP STYLING */
+#gMap {
+  height: 400px;
+  width: 400px;
+}
+/* END MAP STYLING */
