@@ -1,11 +1,16 @@
-// runs current weather api call with city name passed as a parameter
-var getDailyWeather = function (city) {
-    var currentApiUrl = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=imperial&appid=c845404333af03f8f793eadcc58eeb29";
+var lat = parseInt("40.7608");
+var lon = parseInt("-111.8911");
 
-    fetch(currentApiUrl).then(function (response) {
+// runs current weather api call with city name passed as a parameter
+var getDailyWeather = function (lat, lon) {
+    var forecastApiUrl = "https://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + lon + "&exclude=current,minutely,hourly,alerts&units=imperial&appid=c845404333af03f8f793eadcc58eeb29";
+
+
+    fetch(forecastApiUrl).then(function (response) {
         if (response.ok) {
             response.json().then(function (data) {
 
+                console.log(data);
                 // passes response data to display function
                 displayDailyWeather(data);
             });
@@ -37,4 +42,4 @@ var displayDailyWeather = function (data) {
 
 // calls getDailyWeather function to run current weather api with hard coded value of Salt Lake City
 // will be changed to an event listener capturing the value of the user input city name
-getDailyWeather("Salt Lake City");
+getDailyWeather(lat, lon);
