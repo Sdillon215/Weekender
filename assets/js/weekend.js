@@ -14,10 +14,6 @@ var getDailyWeather = function (lat, lon) {
                 // passes response data to display function
                 displayDailyWeather(data);
             });
-        } else {
-            // if user enters an invalid city name they will be alerted
-            // need to change to modul
-            alert("Please enter a city name!");
         };
     });
 
@@ -25,19 +21,27 @@ var getDailyWeather = function (lat, lon) {
 
 // recieves data parameter from getDailyWeather function and will dynamically display data to page
 var displayDailyWeather = function (data) {
-    
-    var weatherList = $("<ul>");
-    // need to add classes to style weather list ex: var cityname = $("<li>").addClass("new classes here").text(data.name);
-    var cityName = $("<li>").text(data.name);
-    var cityTemp = $("<li>").text("Temp: " + data.main.temp + "F");
-    var cityWind = $("<li>").text("Wind: " + data.wind.speed + " Mph");
-    var cityHumid = $("<li>").text("Humidity: " + data.main.humidity + "%");
-    var cityImage = $("<img>").attr("src", "https://openweathermap.org/img/w/" + data.weather[0].icon + ".png")
-    // appends weather info to <ul> as <li>
-    weatherList.append(cityName, cityTemp, cityWind, cityHumid, cityImage);
-    // appends <ul> to div with the id of weather
-    $("#weather").append(weatherList);
-    
+
+    for (var i = 0; i < 7; i++) {
+        var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+        var dailyUnixTime = data.daily[i].dt;
+        var millisecond = dailyUnixTime * 1000;
+
+        var dailyDate = new Date(millisecond);
+        var dailyDate = dailyDate.toLocaleString("en-US", options);
+
+        var weatherList = $("<ul>");
+        // need to add classes to style weather list ex: var cityname = $("<li>").addClass("new classes here").text(data.name);
+        var date = $("<p>").addClass("card-text").text(dailyDate);
+        var cityTemp = $("<p>").addClass("card-text").text("Tempurature: " + data.daily[i].temp.day + "F");
+        var cityWind = $("<p>").addClass("card-text").text("Wind: " + data.daily[i].wind_speed + " Mph");
+        var cityHumid = $("<p>").addClass("card-text").text("Humidity: " + data.daily[i].humidity + "%");
+        var cityImage = $("<img>").attr("src", "https://openweathermap.org/img/w/" + data.daily[i].weather[0].icon + ".png");
+        // appends weather info to <ul> as <li>
+        weatherList.append(date, cityTemp, cityWind, cityHumid, cityImage);
+        // appends <ul> to div with the id of weather
+        $("#weather").append(weatherList);
+    };
 };
 
 // calls getDailyWeather function to run current weather api with hard coded value of Salt Lake City
