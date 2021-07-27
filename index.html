@@ -1,21 +1,113 @@
-<<!doctype html>
+<!doctype html>
 <html lang="en">
-  <head>
-    <title>Weeekender</title>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.6.3/css/foundation-float.min.css" integrity="sha512-tuBWy51BW5GZ5BfYddst4eq3d8mcnOk1I5ZHj45P5AUcf9yo5X3KmOJslloaM0ZoSDzS4lcGY91j3L1k5ZVuVg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="assets/css/style.css" />
+<head>
+  <title>Weekender</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.6.3/css/foundation-float.min.css"
+    integrity="sha512-tuBWy51BW5GZ5BfYddst4eq3d8mcnOk1I5ZHj45P5AUcf9yo5X3KmOJslloaM0ZoSDzS4lcGY91j3L1k5ZVuVg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css" />
 </head>
+
 <body>
-    
-    <!-- jQuery first, then Popper.js, then foundation JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.6.3/js/foundation.min.js" integrity="sha512-9cXmvmK1gIDw3Tol6Xg/1SUls/CvBMgedu1aDjT519sQzy7jk+LoezyQqlzClW2LgXww4xEyuqtofg7PtWteLQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <!-- Our JS file -->
-    <script src="assets/js/weekend.js"></script>
+  <header>
+
+    <div data-sticky-container>
+      <div class="responsive-nav-social" id="responsive-nav-social" data-sticky data-options="marginTop:0;">
+        <div class="row align-justify align-middle" id="responsive-menu">
+          <div class="responsive-nav-social-left">
+            <ul class="menu vertical medium-horizontal">
+              <li><a href="#">Home</a></li>
+              <li><a href="#">About</a></li>
+              <li><a href="#">Travel</a></li>
+              <li><a href="#">Eat</a></li>
+              <li><a href="#">Relax</a></li>
+              <li><a href="#">Videos</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="responsive-nav-social-right hide-for-small-only">
+        <ul class="menu">
+          <li><a href="https://www.facebook.com/"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+          <li><a href="https://www.instagram.com/?hl=en"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+          <li><a href="https://www.pinterest.com/"><i class="fa fa-pinterest-p" aria-hidden="true"></i></a></li>
+          <li><a href="https://twitter.com/?lang=en"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+        </ul>
+      </div>
+    </div>
+    <h1 class="title">Weekender</h1>
+  </header>
+  <p class="title"><span id="datetime"></span></p>
+
+  <div class="row">
+    <!-- weather api on left side-->
+    <div class="column">
+      <h2>Weather in current area</h2>
+      <div id="weather" class="row"></div>
+    </div>
+
+    <!-- current location-->
+    <div class="column">
+      <h2>Current location</h2>
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12086.532566884509!2d-111.91128246501012!3d40.770092869207964!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8752f456c3c9fc9b%3A0x9fd182e8a757e1b0!2sRed%20Iguana!5e0!3m2!1sen!2sus!4v1626981210707!5m2!1sen!2sus"
+        width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+    </div>
+  </div>
+
+  <!-- outdoor activities based on location and weather-->
+  <div data-closable="fade-out" class="todo-list-card card">
+    <div class="card-divider">
+      <h3>To Do List</h3>
+      <button class="close-button" data-close>x</button>
+    </div>
+    <div class="card-section">
+      <ul>
+        <li><input id="item1" type="checkbox"></input><label for="item1"></label>Hiking and Camping</li>
+        <li><input id="item2" type="checkbox"></input><label for="item2"></label>Hunting and fishing</li>
+        <li><input id="item3" type="checkbox"></input><label for="item3"></label>Canoeing, kayaking and rafting</li>
+        <li><input id="item4" type="checkbox"></input><label for="item4"></label>Biking</li>
+        <li><input id="item5" type="checkbox"></input><label for="item5"></label>Rock Climbing</li>
+        <li><input id="item6" type="checkbox"></input><label for="item6"></label>Skiing</li>
+      </ul>
+    </div>
+  </div>
+
+
+  <!-- weather widget that may be removed, jQuery first, then Popper.js, then foundation JS -->
+  <script src="https://apps.elfsight.com/p/platform.js" defer></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.6.3/js/foundation.min.js"
+    integrity="sha512-9cXmvmK1gIDw3Tol6Xg/1SUls/CvBMgedu1aDjT519sQzy7jk+LoezyQqlzClW2LgXww4xEyuqtofg7PtWteLQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <!-- Our JS file -->
+  <script src="assets/js/weekend.js"></script>
+
+
+  <!-- TESTING for activity locations -->
+  <!-- <div id="places">
+    <script src="./assets/js/places.js"></script>
+    <h2>Search Results</h2>
+    <ol id="listResults"></ol>>
+  </div>
+  <div id="gMap">
+    <script src="./assets/js/map.js"></script>
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAoe4eRIVCMKOzBIoL-f1UI_h8Ey3ZLMok&callback=initMap&libraries=&v=weekly&channel=2"
+      async
+    ></script>
+  </div> -->
+
 </body>
+
 </html>
