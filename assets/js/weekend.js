@@ -1,3 +1,4 @@
+// hardcoded lat and lon will later be passed from map API
 var lat = parseInt("40.7608");
 var lon = parseInt("-111.8911");
 
@@ -10,7 +11,6 @@ var getDailyWeather = function (lat, lon) {
         if (response.ok) {
             response.json().then(function (data) {
 
-                console.log(data);
                 // passes response data to display function
                 displayDailyWeather(data);
             });
@@ -30,12 +30,12 @@ var displayDailyWeather = function (data) {
         var dailyDate = new Date(millisecond);
         var dailyDate = dailyDate.toLocaleString("en-US", options);
 
-        var weatherList = $("<ul>");
+        var weatherList = $("<div>").addClass("columns");
         // need to add classes to style weather list ex: var cityname = $("<li>").addClass("new classes here").text(data.name);
-        var date = $("<p>").addClass("card-text").text(dailyDate);
-        var cityTemp = $("<p>").addClass("card-text").text("Tempurature: " + data.daily[i].temp.day + "F");
-        var cityWind = $("<p>").addClass("card-text").text("Wind: " + data.daily[i].wind_speed + " Mph");
-        var cityHumid = $("<p>").addClass("card-text").text("Humidity: " + data.daily[i].humidity + "%");
+        var date = $("<div>").text(dailyDate);
+        var cityTemp = $("<div>").text("Tempurature: " + data.daily[i].temp.day + "F");
+        var cityWind = $("<div>").text("Wind: " + data.daily[i].wind_speed + " Mph");
+        var cityHumid = $("<div>").text("Humidity: " + data.daily[i].humidity + "%");
         var cityImage = $("<img>").attr("src", "https://openweathermap.org/img/w/" + data.daily[i].weather[0].icon + ".png");
         // appends weather info to <ul> as <li>
         weatherList.append(date, cityTemp, cityWind, cityHumid, cityImage);

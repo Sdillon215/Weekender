@@ -2,6 +2,10 @@ body {
   background-color:rgb(255, 255, 226);
 }
 
+#weather {
+  display: flex;
+}
+
 .responsive-nav-social-mobile {
   background: #d7d7d7;
   display: -webkit-flex;
