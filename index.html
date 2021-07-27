@@ -100,17 +100,19 @@
 
 
   <!-- TESTING for activity locations -->
-  <script src="./assets/js/places.js"></script>
-  <script src="./assets/js/map.js"></script>
   <h2>Search Results</h2>
-  <div id="places"></div>
-  <div id="gMap">
-    <script
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAoe4eRIVCMKOzBIoL-f1UI_h8Ey3ZLMok&callback=initMap&libraries=&v=weekly&channel=2"
-      async
-    ></script>
-  </div>
-
+  <section>
+    <!-- <script async
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAoe4eRIVCMKOzBIoL-f1UI_h8Ey3ZLMok&libraries=places&callback=initialize"> -->
+    <!-- script for gMap, autocomplete, and places -->
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAoe4eRIVCMKOzBIoL-f1UI_h8Ey3ZLMok&libraries=places&callback=initialize">
+    </script>
+    <script src="./assets/js/places.js"></script>
+    <!-- <script src="./assets/js/map.js"></script> -->
+    <input type="text" id="citySearch" placeholder="Enter City Name"/>
+    <div id="places"></div>
+    <div id="gMap"></div>
+  </section>
 </body>
 
 </html>
