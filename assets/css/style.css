@@ -7,16 +7,33 @@ body {
   } */
 
   /*input form */
+  .title {
+      display: inline;
+      margin: 0 15px;
+  }
   .city-input {
       width: 500px;
       display:inline-block;
+      background-color: #4ec6cd;
   }
 .activity {
     width: 300px;
+    background-color: #4ec6cd;
 }
 
 .radius {
-    width: 130px;
+    width: 150px;
+    background-color: #4ec6cd;
+
+}
+
+.form1 {
+    background-color: #4ec6cd;
+    border: solid black 3px;
+}
+
+.submit-button {
+    display: inline-block;
 }
 
 
