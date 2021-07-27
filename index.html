@@ -39,25 +39,28 @@
           <li><a href="https://twitter.com/?lang=en"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
         </ul>
       </div>
-    </div> -->
+    </div> -->   
+    
+    <form name="form1" id="form1" class="form1" action="/action_page.php">
     <h1 class="title">Weekender</h1> 
     <input type="text" class="city-input" placeholder="Salt Lake City">
-    <input type="submit" placeholder="Submit">
-    <form name="form1" id="form1" action="/action_page.php">
-      Select Activity: <select name="activities" id="activities">
-          <option value="" selected="selected">Hiking</option>
-          <option value="" selected="selceted">Rock Climbing</option>
+     
+    Select Activity: <select name="activities" class="activity" id="activities">
+          <option value="" selected="hiking">Hiking</option>
+          <option value="" selected="rock-climbing">Rock Climbing</option>
+          <option value="" selected="boating">Boating</option>
+          <option value="" selected="fishing">Fishing</option>
+        </select>
+        
+        
+      Radius: <select name="radius" class="radius" id="radius">
+          <option value="" selected="option1">0-50 miles</option>
+          <option value="" selected="option2">51-100 miles</option>
+          <option value="" selected="option3">101-150 miles</option>
+          <option value="" selected="option4">151-200 miles</option>
         </select>
         <br><br>
-      Topics: <select name="topic" id="topic">
-          <option value="" selected="selected">Please select subject first</option>
-        </select>
-        <br><br>
-      Chapters: <select name="chapter" id="chapter">
-          <option value="" selected="selected">Please select topic first</option>
-        </select>
-        <br><br>
-        <input type="submit" value="Submit">  
+        <input type="submit" class="submit-button" value="Submit">  
       </form>
 
   </header>

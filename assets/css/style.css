@@ -5,8 +5,22 @@ body {
   /* #weather {
     display: flex;
   } */
-  
-  .responsive-nav-social-mobile {
+
+  /*input form */
+  .city-input {
+      width: 500px;
+      display:inline-block;
+  }
+.activity {
+    width: 300px;
+}
+
+.radius {
+    width: 130px;
+}
+
+
+ /* .responsive-nav-social-mobile {
     background: #d7d7d7;
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -60,7 +74,7 @@ body {
   .responsive-nav-social a:hover {
     color: #4ec6cd;
     transition: color 0.2s ease-in;
-  }
+  }*/
   
   @media screen and (max-width: 39.9375em) {
     .responsive-nav-social .menu li a {

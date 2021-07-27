@@ -1,18 +1,8 @@
-var subjectObject = {
-    "Front-end": {
-      "HTML": ["Links", "Images", "Tables", "Lists"],
-      "CSS": ["Borders", "Margins", "Backgrounds", "Float"],
-      "JavaScript": ["Variables", "Operators", "Functions", "Conditions"]    
-    },
-    "Back-end": {
-      "PHP": ["Variables", "Strings", "Arrays"],
-      "SQL": ["SELECT", "UPDATE", "DELETE"]
-    }
-  }
+//dropdown menus
+
   window.onload = function() {
-    var subjectSel = document.getElementById("subject");
-    var topicSel = document.getElementById("topic");
-    var chapterSel = document.getElementById("chapter");
+    var subjectSel = document.getElementById("activities");
+    var topicSel = document.getElementById("radius");
     for (var x in subjectObject) {
       subjectSel.options[subjectSel.options.length] = new Option(x, x);
     }
