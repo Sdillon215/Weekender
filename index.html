@@ -16,7 +16,7 @@
 <body>
   <header>
 
-    <div data-sticky-container>
+    <!--<div data-sticky-container>
       <div class="responsive-nav-social" id="responsive-nav-social" data-sticky data-options="marginTop:0;">
         <div class="row align-justify align-middle" id="responsive-menu">
           <div class="responsive-nav-social-left">
@@ -39,14 +39,33 @@
           <li><a href="https://twitter.com/?lang=en"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
         </ul>
       </div>
-    </div>
-    <h1 class="title">Weekender</h1>
+    </div> -->
+    <h1 class="title">Weekender</h1> 
+    <input type="text" class="city-input" placeholder="Salt Lake City">
+    <input type="submit" placeholder="Submit">
+    <form name="form1" id="form1" action="/action_page.php">
+      Select Activity: <select name="activities" id="activities">
+          <option value="" selected="selected">Hiking</option>
+          <option value="" selected="selceted">Rock Climbing</option>
+        </select>
+        <br><br>
+      Topics: <select name="topic" id="topic">
+          <option value="" selected="selected">Please select subject first</option>
+        </select>
+        <br><br>
+      Chapters: <select name="chapter" id="chapter">
+          <option value="" selected="selected">Please select topic first</option>
+        </select>
+        <br><br>
+        <input type="submit" value="Submit">  
+      </form>
+
   </header>
-  <p class="title"><span id="datetime"></span></p>
+  
 
   <div class="row">
     <!-- weather api on left side-->
-    <div class="column">
+    <div class="column"></div>
       <h2>Weather in current area</h2>
       <div id="weather" class="row"></div>
     </div>
