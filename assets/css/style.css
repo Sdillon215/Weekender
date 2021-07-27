@@ -37,6 +37,7 @@ body {
 .submit-button {
    text-align: right;
     align-items: right;
+    margin: 0 10px;
 }
 
 h3 {
