@@ -44,7 +44,7 @@ function onCityChanged() {
         document.getElementById("citySearch").innerHTML = city.name;
         setCityCenter(city);
         //Placeholder for calling Weather App, recomment once both are in the same branch
-        //getDailyWeather(cityCenterObj.Lat, cityCenterObj.Lng);
+        getDailyWeather(cityCenterObj.Lat, cityCenterObj.Lng);
         updateMap();
     }
 }

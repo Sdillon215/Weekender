@@ -1,6 +1,6 @@
 // runs current weather api call with city name passed as a parameter
-var getDailyWeather = function (city) {
-    var currentApiUrl = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=imperial&appid=c845404333af03f8f793eadcc58eeb29";
+var getDailyWeather = function (lat, lon) {
+    var currentApiUrl = "https://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + lon + "&exclude=current,minutely,hourly,alerts&units=imperial&appid=c845404333af03f8f793eadcc58eeb29";
 
     fetch(currentApiUrl).then(function (response) {
         if (response.ok) {
@@ -9,10 +9,6 @@ var getDailyWeather = function (city) {
                 // passes response data to display function
                 displayDailyWeather(data);
             });
-        } else {
-            // if user enters an invalid city name they will be alerted
-            // need to change to modul
-            alert("Please enter a city name!");
         };
     });
 
@@ -34,7 +30,3 @@ var displayDailyWeather = function (data) {
     $("#weather").append(weatherList);
     
 };
-
-// calls getDailyWeather function to run current weather api with hard coded value of Salt Lake City
-// will be changed to an event listener capturing the value of the user input city name
-getDailyWeather("Salt Lake City");
