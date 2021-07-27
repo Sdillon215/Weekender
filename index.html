@@ -1,17 +1,19 @@
 <!doctype html>
+
 <html lang="en">
 
 <head>
-  <title>Weekender</title>
+
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Weekender</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.6.3/css/foundation-float.min.css"
     integrity="sha512-tuBWy51BW5GZ5BfYddst4eq3d8mcnOk1I5ZHj45P5AUcf9yo5X3KmOJslloaM0ZoSDzS4lcGY91j3L1k5ZVuVg=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css" />
-  <link rel="shortcut icon" type="image/jpg" href="assets/Images/lowercase-w.jpg"
+  <link rel="shortcut icon" type="image/jpg" href="assets/Images/lowercase-w.jpg">
 </head>
 
 <body>
@@ -42,37 +44,48 @@
       </div>
     </div> -->   
     
-    <form name="form1" id="form1" class="form1" action="/action_page.php">
+    <form name="form1" id="form1" class="callout alert" action="/action_page.php">
     <h1 class="title">Weekender</h1> 
-    <h3>Location:</h3>
-    <input type="text" class="city-input" placeholder="Salt Lake City" color = "black">
-     
-    <h3>Select Activity:</h3> <select name="activities" class="activity" id="activities">
-          <option value="" selected="hiking">Hiking</option>
-          <option value="" selected="rock-climbing">Rock Climbing</option>
-          <option value="" selected="boating">Boating</option>
-          <option value="" selected="fishing">Fishing</option>
-        </select>
-        
-        
-      <h3>Radius:</h3> <select name="radius" class="radius" id="radius">
-          <option value="" selected="option1">0-50 miles</option>
-          <option value="" selected="option2">51-100 miles</option>
-          <option value="" selected="option3">101-150 miles</option>
-          <option value="" selected="option4">151-200 miles</option>
-        </select>
-        <input type="submit" class="submit-button" value="Submit">  
-      </form>
+    <div class="grid-container">
+      <div class="grid-x grid-padding-x">
+        <div class="cell small-3">
+          <label>Location :
+              <input type="text" placeholder="Salt Lake City" class="callout warning">
+          </label>
+        </div>
+    
+        <div class="medium-3 cell">
+          <label>Select Activity:
+            <select class="callout warning">
+              <option value="hiking">Hiking</option>
+              <option value="rock-climbing">Rock Climbing</option>
+              <option value="boating">Boating</option>
+              <option value="fishing">Fishing</option>
+            </select>
+          </label>
+        </div>
 
-  </header>
+        <div class="medium-3 cell">
+          <label>Radius:
+            <select class="callout warning">
+              <option value="option1">0-50 miles</option>
+              <option value="option2">51-100 miles</option>
+              <option value="option3">101-150 miles</option>
+              <option value="option4">151-200 miles</option>
+            </select>
+          </label>
+        </div>
+      </div>
+    </div>
+    </form>
+ </header>
   
 
-  <div class="row">
+  <div class="columns grid-x grid-padding-x callout primary align-justify">
+    <h2>Weather in current area</h2>
     <!-- weather api on left side-->
-    <div class="column"></div>
-      <h2>Weather in current area</h2>
-      <div id="weather" class="row"></div>
-    </div>
+    <div id="weather" class="cell"></div>  
+  </div>
 
     <!-- current location-->
     <div class="column">
@@ -81,7 +94,7 @@
         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12086.532566884509!2d-111.91128246501012!3d40.770092869207964!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8752f456c3c9fc9b%3A0x9fd182e8a757e1b0!2sRed%20Iguana!5e0!3m2!1sen!2sus!4v1626981210707!5m2!1sen!2sus"
         width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
     </div>
-  </div>
+  
 
   <!-- outdoor activities based on location and weather-->
   <div data-closable="fade-out" class="todo-list-card card">
