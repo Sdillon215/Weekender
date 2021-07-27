@@ -30,7 +30,7 @@ var displayDailyWeather = function (data) {
         var dailyDate = new Date(millisecond);
         var dailyDate = dailyDate.toLocaleString("en-US", options);
 
-        var cardList =$("<div>").addClass("cell");
+        var cardList =$("<div>").addClass("cell medium-6");
         var weatherList = $("<div>").addClass("card");
         // need to add classes to style weather list ex: var cityname = $("<li>").addClass("new classes here").text(data.name);
         var date = $("<div>").addClass("card-section").text(dailyDate);
