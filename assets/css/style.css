@@ -5,6 +5,9 @@ body {
 #weather {
   display: flex;
 }
+ .column {
+   gri
+ }
 
 .responsive-nav-social-mobile {
   background: #d7d7d7;
@@ -108,3 +111,10 @@ body {
   width: 400px;
 }
 /* END MAP STYLING */
+
+@media screen and (max-width: 768px) {
+  #weathertt {
+    vertical-align: middle;
+
+  }
+}
