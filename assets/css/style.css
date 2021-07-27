@@ -98,6 +98,14 @@ body {
   width: 100%;
 }
 
+/* START PLACES STYLING */
+#places {
+  height: 400px;
+  width: 400px;
+}
+/* END PLACES STYLING */
+
+
 /* START MAP STYLING */
 #gMap {
   height: 400px;
