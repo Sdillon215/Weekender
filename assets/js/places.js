@@ -67,16 +67,10 @@ function updateMap() {
 
 //does what it says, removes markers on the map
 function removeMapMarkers() {
-    setMarkersOnMap(null);
-    //as the markers need to be removed, setting the array to null
-    mapMarkers = [];
-}
-
-//populates the markers array so they can be added/removed from the map
-function setMarkersOnMap(map) {
     for (let i = 0; i < mapMarkers.length; i++) {
-        mapMarkers[i].setMap(map);
+        mapMarkers[i].setMap(null);
     }
+    mapMarkers = [];
 }
 
 //function to call API to get places
@@ -98,157 +92,42 @@ function getPlaces() {
     service.textSearch(request, callback);
 }
 
-//function similar to a fetch... i think
+//function similar to a fetch... i think... or perhaps like an event listener?
 function callback(results, status) {
-    // if (status == google.maps.places.PlacesServiceStatus.OK) {
-    //     for (var i = 0; i < results.length; i++) {
-    //         var resultObject = {
-    //             name: results[i].name,
-    //             geoLocation: results[i].geometry.location,
-    //         };
-    //         placesList.push(resultObject);
-    //     }
-    //   }
+    var placesList = [];
+
+    if (status == google.maps.places.PlacesServiceStatus.OK) {
+        for (var i = 0; i < results.length; i++) {
+            var resultObject = {
+                name: results[i].name,
+                geoLocation: results[i].geometry.location,
+                rating: results[i].rating
+            };
+            placesList.push(resultObject);
+        }
+    }
+
+    //sorts results based on rating
+    placesList.sort(function(a, b){
+        return b.rating - a.rating;
+    })
+
+    //populates the top 5 palces, and creates markers for the map
+    var locationList = $("<ol>");
+    for (let i = 0; i < placesList.length; i++) {
+        if (i===5) {
+            break;
+        };
+        var locationName = $("<li>").text(placesList[i].name);
+        locationList.append(locationName);       
+        mapMarkers.push(new google.maps.Marker({
+            position: placesList[i].geoLocation,
+            label: (i + 1).toString(),
+            map: map
+        }))
+    }
+
+    //clears then updates places html
+    $("#places").empty();
+    $("#places").append(locationList);
 }
-
-
-
-// //function to get places
-// var getPlaces = function (city, activity, radius) {
-//     var placesURL = "https://maps.googleapis.com/maps/api/place/textsearch/json?query="
-//         + activity + "+near+" + city + "&radius=" + radius + "&key=AIzaSyAoe4eRIVCMKOzBIoL-f1UI_h8Ey3ZLMok";
-
-//     //gets JSON results from API and pulls relevant info out into an array of objects
-//     var placesList = [];
-
-//     $.getJSON(placesURL, function(data) {
-//         data.results.forEach(result => {
-//             var resultObject = {
-//                 name: result.name,
-//                 lat: result.geometry.location.lat,
-//                 lng: result.geometry.location.lng
-//             };
-//             placesList.push(resultObject);
-//         });
-
-//         //lists the first 5 places in the html and eventually maps them on the gMap, might change functionality later to include more places depending on group workload
-//         var locationList = $("<ol>");
-//         for (let i = 0; i < 5; i++) {
-//             var locationName = $("<li>").text(placesList[i].name);
-//             locationList.append(locationName)            
-//         }
-
-//         $("#places").append(locationList);
-//     });
-
-//     //for some reason the array loses some scope outside the getjson gotta move it inside scope.
-//      console.log(placesList);
-//     // console.log(placesList[0])
-// }
-
-
-
-
-//Unfinished second version: started to construct the client side API but wanted to try building differently to include city search/autocomplete and map markers all in one
-
-// var map;
-// var geocoder;
-// var service;
-
-// //initial function to generate map
-// function initialize() {
-//     geocoder = new google.maps.Geocoder();
-//     var latlng = new google.maps.LatLng(-34.397, 150.644);
-//     var mapOptions = {
-//         zoom: 8,
-//         center: latlng
-//     }
-//     map = new google.maps.Map(document.getElementById('gMap'), mapOptions);
-
-//     initPlaces();
-// }
-
-// function codeAddress() {
-//     //will need to code in elementID value once HTML is complete
-//     var address = "Salt Lake City";
-//     geocoder.geocode({ 'address': address }, function (results, status) {
-//         if (status == 'OK') {
-//             map.setCenter(results[0].geometry.location);
-//             var marker = new google.maps.Marker({
-//                 map: map,
-//                 position: results[0].geometry.location
-//             });
-//         } else {
-//             alert('Geocode was not successful for the following reason: ' + status);
-//         }
-//     });
-// }
-
-// //initial function to populate default values
-// function initPlaces() {
-//     //defaults to SLC
-//     getPlaces("Salt Lake City", "hiking", "1000");
-// }
-
-// function getPlaces(city, activity, radius) {
-//     var request = {
-//         location: city,
-//         radius: radius,
-//         query: activity
-//     };
-
-//     service = new google.maps.places.PlacesService(map);
-//     service.textSearch(request, callback);
-// }
-
-// function callback(results, status) {
-//     if (status == google.maps.places.PlacesServiceStatus.OK) {
-//         for (var i = 0; i < results.length; i++) {
-//             var place = results[i];
-//             createMarker(results[i]);
-//         }
-//     }
-// }
-
-
-
-// First Version uses server side API, need to switch to client side API
-
-// //initial function to populate default values
-// function initPlaces() {
-//     //defaults to SLC
-//     getPlaces("Salt Lake City", "hiking", "1000");
-// }
-
-// //function to get places
-// var getPlaces = function (city, activity, radius) {
-//     var placesURL = "https://maps.googleapis.com/maps/api/place/textsearch/json?query="
-//         + activity + "+near+" + city + "&radius=" + radius + "&key=AIzaSyAoe4eRIVCMKOzBIoL-f1UI_h8Ey3ZLMok";
-
-//     //gets JSON results from API and pulls relevant info out into an array of objects
-//     var placesList = [];
-
-//     $.getJSON(placesURL, function(data) {
-//         data.results.forEach(result => {
-//             var resultObject = {
-//                 name: result.name,
-//                 lat: result.geometry.location.lat,
-//                 lng: result.geometry.location.lng
-//             };
-//             placesList.push(resultObject);
-//         });
-
-//         //lists the first 5 places in the html and eventually maps them on the gMap, might change functionality later to include more places depending on group workload
-//         var locationList = $("<ol>");
-//         for (let i = 0; i < 5; i++) {
-//             var locationName = $("<li>").text(placesList[i].name);
-//             locationList.append(locationName)            
-//         }
-
-//         $("#places").append(locationList);
-//     });
-
-//     //for some reason the array loses some scope outside the getjson gotta move it inside scope.
-//      console.log(placesList);
-//     // console.log(placesList[0])
-// }
