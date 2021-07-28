@@ -1,7 +1,3 @@
-// hardcoded lat and lon will later be passed from map API
-//var lat = parseInt("40.7608");
-//var lon = parseInt("-111.8911");
-
 // runs current weather api call with city name passed as a parameter
 var getDailyWeather = function (lat, lon) {
     var forecastApiUrl = "https://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + lon + "&exclude=current,minutely,hourly,alerts&units=imperial&appid=c845404333af03f8f793eadcc58eeb29";
