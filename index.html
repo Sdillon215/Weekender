@@ -18,72 +18,50 @@
 
 <body>
   <header>
-<form name="form1" id="form1" class="callout alert" action="/action_page.php">
-    <h1 class="title">Weekender</h1> 
-    <div class="grid-container">
-      <div class="grid-x grid-padding-x">
-        <div class="cell small-3">
-          <label>Location :
-              <input type="text" placeholder="Salt Lake City" class="callout warning">
-          </label>
-        </div>
-    
-        <div class="medium-3 cell">
-          <label>Select Activity:
-            <select class="callout warning">
-              <option value="hiking">Hiking</option>
-              <option value="rock-climbing">Rock Climbing</option>
-              <option value="boating">Boating</option>
-              <option value="fishing">Fishing</option>
-            </select>
-          </label>
-        </div>
+    <form name="form1" id="form1" class="callout alert" action="/action_page.php">
+      <h1 class="title">Weekender</h1>
+      <div class="grid-container">
+        <div class="grid-x grid-padding-x">
+          <div class="cell small-3">
+            <label>Location:
+              <input type="text" id="citySearch" class="callout warning" placeholder="Enter City Name" />
 
-        <div class="medium-3 cell">
-          <label>Radius:
-            <select class="callout warning">
-              <option value="option1">0-50 miles</option>
-              <option value="option2">51-100 miles</option>
-              <option value="option3">101-150 miles</option>
-              <option value="option4">151-200 miles</option>
-            </select>
-          </label>
+            </label>
+          </div>
+
+          <div class="medium-3 cell">
+            <label>Select Activity:
+              <select id="dropdown-activity" class="callout warning">
+                <option value="hiking">Hiking</option>
+                <option value="rock-climbing">Rock Climbing</option>
+                <option value="boating">Boating</option>
+                <option value="fishing">Fishing</option>
+              </select>
+            </label>
+          </div>
+
+          <div class="medium-3 cell">
+            <label>Radius:
+              <select id="dropdown-radius" class="callout warning">
+                <option value="option1">0-50 miles</option>
+                <option value="option2">51-100 miles</option>
+                <option value="option3">101-150 miles</option>
+                <option value="option4">151-200 miles</option>
+              </select>
+            </label>
+          </div>
         </div>
-        <div class="">
-          <ul class="menu">
-            <li><input type="search" placeholder="Search" class="animated-search-form"></li>
-            <li><button type="button" class="button">Search</button></li>
-          </ul>
-        </div>
-      </div>   
-    </div>
-    
+      </div>
+
     </form>
- </header>
-  
+  </header>
+
 
   <div class="columns grid-x grid-padding-x callout primary align-justify">
     <h2>Weather in current area</h2>
     <!-- weather api on left side-->
-    <div id="weather" class="cell"></div>  
+    <div id="weather" class="cell"></div>
   </div>
-  </div>
-
-  <!-- outdoor activities based on location and weather-->
-  <div data-closable="fade-out" class="todo-list-card card">
-    <div class="card-divider">
-      <h3>To Do List</h3>
-    </div>
-    <div class="card-section">
-      <ul>
-        <li><input id="item1" type="checkbox"></input><label for="item1"></label>Hiking and Camping</li>
-        <li><input id="item2" type="checkbox"></input><label for="item2"></label>Hunting and fishing</li>
-        <li><input id="item3" type="checkbox"></input><label for="item3"></label>Canoeing, kayaking and rafting</li>
-        <li><input id="item4" type="checkbox"></input><label for="item4"></label>Biking</li>
-        <li><input id="item5" type="checkbox"></input><label for="item5"></label>Rock Climbing</li>
-        <li><input id="item6" type="checkbox"></input><label for="item6"></label>Skiing</li>
-      </ul>
-    </div>
   </div>
 
   <!-- Our JS file -->
@@ -91,10 +69,10 @@
 
   <h2>Search Results</h2>
   <section>
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAoe4eRIVCMKOzBIoL-f1UI_h8Ey3ZLMok&libraries=places&callback=initialize">
-    </script>
+    <script async defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAoe4eRIVCMKOzBIoL-f1UI_h8Ey3ZLMok&libraries=places&callback=initialize">
+      </script>
     <script src="./assets/js/places.js"></script>
-    <input type="text" id="citySearch" placeholder="Enter City Name"/>
     <div id="places"></div>
     <div id="gMap"></div>
   </section>
