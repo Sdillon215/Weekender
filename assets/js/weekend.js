@@ -15,6 +15,7 @@ var getDailyWeather = function (lat, lon) {
 
 // recieves data parameter from getDailyWeather function and will dynamically display data to page
 var displayDailyWeather = function (data) {
+    $("#weather").empty();
     for (var i = 0; i < 7; i++) {
         var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
         var dailyUnixTime = data.daily[i].dt;
@@ -23,18 +24,16 @@ var displayDailyWeather = function (data) {
         var dailyDate = new Date(millisecond);
         var dailyDate = dailyDate.toLocaleString("en-US", options);
 
-        var cardList =$("<div>").addClass("cell");
-        var weatherList = $("<div>").addClass("card");
+        var weatherList = $("<div>").addClass("columns");
         // need to add classes to style weather list ex: var cityname = $("<li>").addClass("new classes here").text(data.name);
-        var date = $("<div>").addClass("card-section").text(dailyDate);
-        var cityTemp = $("<div>").addClass("card-section").text("Tempurature: " + data.daily[i].temp.day + "F");
-        var cityWind = $("<div>").addClass("card-section").text("Wind: " + data.daily[i].wind_speed + " Mph");
-        var cityHumid = $("<div>").addClass("card-section").text("Humidity: " + data.daily[i].humidity + "%");
-        var cityImage = $("<img>").addClass("card-section").attr("src", "https://openweathermap.org/img/w/" + data.daily[i].weather[0].icon + ".png");
+        var date = $("<div>").text(dailyDate);
+        var cityTemp = $("<div>").text("Tempurature: " + data.daily[i].temp.day + "F");
+        var cityWind = $("<div>").text("Wind: " + data.daily[i].wind_speed + " Mph");
+        var cityHumid = $("<div>").text("Humidity: " + data.daily[i].humidity + "%");
+        var cityImage = $("<img>").attr("src", "https://openweathermap.org/img/w/" + data.daily[i].weather[0].icon + ".png");
         // appends weather info to <ul> as <li>
         weatherList.append(date, cityTemp, cityWind, cityHumid, cityImage);
         // appends <ul> to div with the id of weather
-        cardList.append(weatherList);
-        $("#weather").append(cardList);
+        $("#weather").append(weatherList);
     };
 };
