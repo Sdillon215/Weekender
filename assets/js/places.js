@@ -77,15 +77,15 @@ function removeMapMarkers() {
 function getPlaces() {
     // placeholders for html inputs for radius and activity
     var radius = 2000;
-    //var activity = "hiking";
+    var activity = "hiking";
 
     var request = {
         location: {lat: cityCenterObj.Lat, lng: cityCenterObj.Lng},
         //will need to replace radius and query once html is finished
         radius: radius,
-        //query: activity
+        query: activity
         // radius: document.getElementById("radiusInput").value,
-        query: document.getElementById("dropdownActivity").value
+        //query: document.getElementById("dropdownActivity").value
     };
 
     service = new google.maps.places.PlacesService(map);
