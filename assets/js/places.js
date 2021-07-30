@@ -10,6 +10,13 @@ function initialize() {
     initAutoComplete();
 }
 
+function radiusChange() {
+    console.log(autocomplete.getPlace());
+    if (autocomplete.getPlace() != null) {
+        valueChanged()
+    }
+}
+
 //creates the gMap
 function initMap() {
     map = new google.maps.Map(document.getElementById("gMap"), {
@@ -30,11 +37,11 @@ function initAutoComplete() {
     });
 
     //adds listener if the city is changed
-    autocomplete.addListener("place_changed", onCityChanged);
+    autocomplete.addListener("place_changed", valueChanged);
 }
 
 //event listener to call map and places change if a city is entered/selected
-function onCityChanged() {
+function valueChanged() {
     var city = autocomplete.getPlace();
 
     if (!city.geometry) {

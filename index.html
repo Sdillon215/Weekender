@@ -30,11 +30,12 @@
 
           <div class="medium-3 cell">
             <label>Radius:
-              <select class="callout warning" id="dropdownRadius">
-                <option value=50>50 miles</option>
-                <option value=100>100 miles</option>
-                <option value=150>150 miles</option>
-                <option value=200>200 miles</option>
+              <select class="callout warning" id="dropdownRadius" onchange="radiusChange()">
+                <!-- api unit of measure is in meters, with a max of 50k meters (~31 miles) -->
+                <option value=8047>5 miles</option>
+                <option value=16093>10 miles</option>
+                <option value=32187>20 miles</option>
+                <option value=48280>30 miles</option>
               </select>
             </label>
           </div>
