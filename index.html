@@ -18,34 +18,23 @@
 
 <body>
   <header>
-    <form name="form1" id="form1" class="callout alert" action="/action_page.php">
+    <form name="form1" id="form1" class="callout alert">
       <h1 class="title">Weekender</h1>
       <div class="grid-container">
         <div class="grid-x grid-padding-x">
           <div class="cell small-3">
             <label>Location:
-              <input type="text" id="citySearch" placeholder="Enter City Name"  class="callout warning"/>
+              <input type="text" id="citySearch" placeholder="Enter City Name" class="callout warning" />
             </label>
           </div>
-
-          <!-- <div class="medium-3 cell">
-            <label>Select Activity:
-              <select class="callout warning" id="dropdownActivity">
-                <option value="hiking">Hiking</option>
-                <option value="rock-climbing">Rock Climbing</option>
-                <option value="boating">Boating</option>
-                <option value="fishing">Fishing</option>
-              </select>
-            </label>
-          </div> -->
 
           <div class="medium-3 cell">
             <label>Radius:
               <select class="callout warning" id="dropdownRadius">
-                <option value="option1">0-50 miles</option>
-                <option value="option2">51-100 miles</option>
-                <option value="option3">101-150 miles</option>
-                <option value="option4">151-200 miles</option>
+                <option value=50>50 miles</option>
+                <option value=100>100 miles</option>
+                <option value=150>150 miles</option>
+                <option value=200>200 miles</option>
               </select>
             </label>
           </div>
@@ -55,25 +44,32 @@
     </form>
   </header>
 
+  <section id="postSearch">
+    <div class="columns grid-x grid-padding-x callout primary align-justify">
+      <h2>Weather</h2>
+      <!-- weather api on left side-->
+      <div id="weather" class="cell"></div>
+    </div>
 
-  <div class="columns grid-x grid-padding-x callout primary align-justify">
-    <h2>Weather</h2>
-    <!-- weather api on left side-->
-    <div id="weather" class="cell"></div>
-  </div>
+    <!-- weahter js -->
+    <script src="assets/js/weekend.js"></script>
 
-  <!-- Our JS file -->
-  <script src="assets/js/weekend.js"></script>
+    <div class="headerPlaces">
+      <h2>Top 5 Search Results</h2>
+      <h5>(Based on GoogleMaps Rating)</h5>
+    </div>
+    <section>
+      <!-- search autocomplete, places, and gMap API -->
+      <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAoe4eRIVCMKOzBIoL-f1UI_h8Ey3ZLMok&libraries=places&callback=initialize">
+        </script>
+      <!-- search autocomplete, places, and gMap JS -->
+      <script src="./assets/js/places.js"></script>
 
-  <h2>Search Results</h2>
-  <section>
-    <script async defer
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAoe4eRIVCMKOzBIoL-f1UI_h8Ey3ZLMok&libraries=places&callback=initialize">
-      </script>
-    <script src="./assets/js/places.js"></script>
-    
-    <div id="places"></div>
-    <div id="gMap"></div>
+      <!-- places and gMap sections -->
+      <div id="places"></div>
+      <div id="gMap"></div>
+    </section>
   </section>
 </body>
 

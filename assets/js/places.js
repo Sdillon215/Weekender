@@ -75,17 +75,10 @@ function removeMapMarkers() {
 
 //function to call API to get places
 function getPlaces() {
-    // placeholders for html inputs for radius and activity
-    var radius = 2000;
-    var activity = "hiking";
-
     var request = {
         location: {lat: cityCenterObj.Lat, lng: cityCenterObj.Lng},
-        //will need to replace radius and query once html is finished
-        radius: radius,
-        query: activity
-        // radius: document.getElementById("radiusInput").value,
-        //query: document.getElementById("dropdownActivity").value
+        query: "hiking",
+        radius: document.getElementById("dropdownRadius").value
     };
 
     service = new google.maps.places.PlacesService(map);
@@ -97,6 +90,7 @@ function callback(results, status) {
     var placesList = [];
 
     if (status == google.maps.places.PlacesServiceStatus.OK) {
+        document.getElementById("postSearch").style.display = "block";
         for (var i = 0; i < results.length; i++) {
             var resultObject = {
                 name: results[i].name,
@@ -114,18 +108,22 @@ function callback(results, status) {
 
     //populates the top 5 palces, and creates markers for the map
     var locationList = $("<ol>");
+    var mapBoundry = new google.maps.LatLngBounds();
     for (let i = 0; i < placesList.length; i++) {
         if (i===5) {
             break;
         };
         var locationName = $("<li>").text(placesList[i].name);
+        var placePosition = placesList[i].geoLocation;
+        mapBoundry.extend(placePosition);
         locationList.append(locationName);       
         mapMarkers.push(new google.maps.Marker({
-            position: placesList[i].geoLocation,
+            position: placePosition,
             label: (i + 1).toString(),
             map: map
         }))
     }
+    map.fitBounds(mapBoundry);
 
     //clears then updates places html
     $("#places").empty();
