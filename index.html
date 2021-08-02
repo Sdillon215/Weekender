@@ -1,21 +1,79 @@
-<<!doctype html>
+<!doctype html>
 <html lang="en">
-  <head>
-    <title>Weeekender</title>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.6.3/css/foundation-float.min.css" integrity="sha512-tuBWy51BW5GZ5BfYddst4eq3d8mcnOk1I5ZHj45P5AUcf9yo5X3KmOJslloaM0ZoSDzS4lcGY91j3L1k5ZVuVg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="assets/css/style.css" />
+<head>
+
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Weekender</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.6.3/css/foundation-float.min.css"
+    integrity="sha512-tuBWy51BW5GZ5BfYddst4eq3d8mcnOk1I5ZHj45P5AUcf9yo5X3KmOJslloaM0ZoSDzS4lcGY91j3L1k5ZVuVg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="shortcut icon" type="image/jpg" href="assets/Images/lowercase-w.jpg">
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 </head>
+
 <body>
-    
-    <!-- jQuery first, then Popper.js, then foundation JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.6.3/js/foundation.min.js" integrity="sha512-9cXmvmK1gIDw3Tol6Xg/1SUls/CvBMgedu1aDjT519sQzy7jk+LoezyQqlzClW2LgXww4xEyuqtofg7PtWteLQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <!-- Our JS file -->
+  <header>
+    <form name="form1" id="form1" class="callout alert">
+      <h1 class="title">Weekender</h1>
+      <div class="grid-container">
+        <div class="grid-x grid-padding-x">
+          <div class="cell small-3">
+            <label>Location:
+              <input type="text" id="citySearch" placeholder="Enter City Name" class="callout warning" />
+            </label>
+          </div>
+
+          <div class="medium-3 cell">
+            <label>Radius:
+              <select class="callout warning" id="dropdownRadius" onchange="radiusChange()">
+                <!-- api unit of measure is in meters, with a max of 50k meters (~31 miles) -->
+                <option value=8047>5 miles</option>
+                <option value=16093>10 miles</option>
+                <option value=32187>20 miles</option>
+                <option value=48280>30 miles</option>
+              </select>
+            </label>
+          </div>
+        </div>
+      </div>
+
+    </form>
+  </header>
+
+  <section id="postSearch">
+    <div class="columns grid-x grid-padding-x callout primary align-justify">
+      <h2>Weather</h2>
+      <!-- weather api on left side-->
+      <div id="weather" class="cell"></div>
+    </div>
+
+    <!-- weahter js -->
     <script src="assets/js/weekend.js"></script>
+
+    <div class="headerPlaces">
+      <h2>Top 5 Search Results</h2>
+      <h5>(Based on GoogleMaps Rating)</h5>
+    </div>
+    <section>
+      <!-- search autocomplete, places, and gMap API -->
+      <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAoe4eRIVCMKOzBIoL-f1UI_h8Ey3ZLMok&libraries=places&callback=initialize">
+        </script>
+      <!-- search autocomplete, places, and gMap JS -->
+      <script src="./assets/js/places.js"></script>
+
+      <!-- places and gMap sections -->
+      <div class="flex">
+        <div class="large-6" id="places"></div>
+        <div class="card large-6" id="gMap"></div>
+      </div>
+    </section>
+  </section>
 </body>
+
 </html>
