@@ -103,7 +103,7 @@ h3 {
     width: 100%;
   }
   
-/* START PLACES STYLING */
+  /* START PLACES STYLING */
   .headerPlaces h2 {
     font-size: 25px;
   }
@@ -111,15 +111,21 @@ h3 {
     font-size: 10px;
     font-style: italic;
   }
-/* END PLACES STYLING */
-
-/* START MAP STYLING */
-#gMap {
-  height: 400px;
-  width: 400px;
-}
-/* END MAP STYLING */
-
-#postSearch {
-  display: none;
+  /* END PLACES STYLING */
+  
+  /* START MAP STYLING */
+  #gMap {
+    height: 400px;
+    width: 400px;
+  }
+  /* END MAP STYLING */
+  
+  #postSearch {
+    display: none;
+  }
+  
+@media screen and (max-width: 1025px) {
+  .flex {
+    display: block;
+  }
 }
