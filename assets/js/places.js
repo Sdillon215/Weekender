@@ -50,7 +50,7 @@ function valueChanged() {
     else {
         document.getElementById("citySearch").innerHTML = city.name;
         setCityCenter(city);
-        //Placeholder for calling Weather App, recomment once both are in the same branch
+        //Passes lat and lon to weekend.js
         getDailyWeather(cityCenterObj.Lat, cityCenterObj.Lng);
         updateMap();
     }

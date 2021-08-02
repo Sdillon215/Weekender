@@ -124,6 +124,7 @@ h3 {
     display: none;
   }
   
+  /* media query for map area */
 @media screen and (max-width: 1025px) {
   .flex {
     display: block;
