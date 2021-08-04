@@ -27,6 +27,12 @@
               <input type="text" id="citySearch" placeholder="Enter City Name" class="callout warning" />
             </label>
           </div>
+          <div class="cell small-3">
+            <h2>Your Cities</h2>
+            <ul id="city-list" class="list-group list-group-flush">
+              <button type="button" class="button">Salt Lake City</button>
+            </ul>
+          </div>
 
           <div class="medium-3 cell">
             <label>Radius:
@@ -54,7 +60,6 @@
 
     <!-- weahter js -->
     <script src="assets/js/weekend.js"></script>
-
     <div class="headerPlaces">
       <h2>Top 5 Search Results</h2>
       <h5>(Based on GoogleMaps Rating)</h5>
@@ -66,7 +71,9 @@
         </script>
       <!-- search autocomplete, places, and gMap JS -->
       <script src="./assets/js/places.js"></script>
-
+      <!-- storage js -->
+      <script src="assets/js/storage.js"></script>
+      
       <!-- places and gMap sections -->
       <div class="flex">
         <div class="large-6" id="places"></div>
