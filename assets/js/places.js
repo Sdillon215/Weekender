@@ -52,6 +52,7 @@ function valueChanged() {
         setCityCenter(city);
         //Passes lat and lon to weekend.js
         getDailyWeather(cityCenterObj.Lat, cityCenterObj.Lng);
+        // passes city name to storage.js 
         loadCity(city.name);
         updateMap();
     }
